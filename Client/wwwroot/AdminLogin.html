@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="Statistics.html">Statistics</a>
+        <a href="MySchedule.html">My Schedule</a>
+        <a href="AdminLogin.html">Admin Login</a>
+    </nav>
+
+    <h1>Admin Login</h1>
+    <p>Login to manage events</p>
+</header>
+
+<main>
+    <section class="login-card">
+        <h2>Admin Access</h2>
+        <label>Username:</label>
+        <input type="text" id="adminUsername" placeholder="Enter username">
+        <label>Password:</label>
+        <input type="password" id="adminPassword" placeholder="Enter password">
+        <button onclick="adminLogin()">Login</button>
+        <p id="adminLoginMessage"></p>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin's page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+
+    <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="Statistics.html">Statistics</a>
+        <a href="MySchedule.html">My Schedule</a>
+        <a href="AdminLogin.html">Admin</a>
+    </nav>
+
+    <h1>Admin Panel</h1>
+    <p>Create, update and delete events</p>
+</header>
+
+<main>
+    <section class="admin-card">
+        <h2>Create New Event</h2>
+        <label>Title:</label>
+        <input type="text" id="createTitle">
+        <label>Description:</label>
+        <textarea id="createDescription"></textarea>
+        <label>Start Date:</label>
+        <input type="datetime-local" id="createStartDate">
+        <label>End Date:</label>
+        <input type="datetime-local" id="createEndDate">
+        <label>Location:</label>
+        <input type="text" id="createLocation">
+        <label>Event Type:</label>
+        <input type="text" id="createEventType">
+        <button onclick="AdminCreateEvent()">Create Event</button>
+        <p id="createEventMessage"></p>
+    </section>
+
+    <section class="admin-card">
+        <h2>Update Event</h2>
+        <label>Select Event:</label>
+        <select id="updateEventSelect" onchange="fillUpdateForm()">
+            <option value="">Choose event</option>
+        </select>
+        <label>Title:</label>
+        <input type="text" id="updateTitle">
+        <label>Description:</label>
+        <textarea id="updateDescription"></textarea>
+        <label>Start Date:</label>
+        <input type="datetime-local" id="updateStartDate">
+        <label>End Date:</label>
+        <input type="datetime-local" id="updateEndDate">
+        <label>Location:</label>
+        <input type="text" id="updateLocation">
+        <label>Event Type:</label>
+        <input type="text" id="updateEventType">
+        <button onclick="updateEvent()">Update Event</button>
+        <p id="updateEventMessage"></p>
+    </section>
+
+    <section class="admin-card danger-card">
+        <h2>Delete Event</h2>
+        <label>Select Event:</label>
+        <select id="deleteEventSelect">
+            <option value="">Choose event</option>
+        </select>
+        <button onclick="deleteEvent()" class="delete-button">Delete Event</button>
+        <p id="deleteEventMessage"></p>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

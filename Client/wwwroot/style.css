@@ -1,0 +1,460 @@
+/* ===== General page style ===== */
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    margin: 0;
+    background-color: #f7f1f8;
+    color: #222;
+}
+
+main {
+    width: 80%;
+    max-width: 1100px;
+    margin: 35px auto;
+}
+
+
+/* ===== Header ===== */
+
+header {
+    position: relative;
+    background: linear-gradient(135deg, plum, #d98ad9);
+    color: white;
+    text-align: center;
+    padding: 45px 25px;
+    box-shadow: 0 4px 12px rgba(221, 160, 221, 0.4);
+}
+
+header h1 {
+    font-size: 46px;
+    margin: 0;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+/* ===== Event details page header ===== */
+
+.details-header {
+    position: relative;
+}
+
+/* ===== Main navigation menu ===== */
+
+.main-nav {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+}
+
+.main-nav a {
+    display: inline-block;
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+
+.main-nav a:hover {
+    border-bottom: 2px solid white;
+}
+
+/* ===== Cards common style ===== */
+
+.event-card,
+.session-card,
+.weather-box {
+    background-color: white;
+    border: 1px solid #e8b7ea;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(221, 160, 221, 0.12);
+}
+
+/* ===== Event cards on dashboard ===== */
+
+.event-card {
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+.event-card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: plum;
+    font-size: 25px;
+}
+
+.event-card p {
+    margin: 7px 0;
+    font-size: 16px;
+}
+
+/* ===== Details card ===== */
+
+.details-card {
+    background-color: #fffaff;
+    border: 1px solid #e8b7ea;
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 18px;
+    box-shadow: 0 6px 18px rgba(221, 160, 221, 0.18);
+}
+
+.details-card h2 {
+    color: plum;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+.details-card h3 {
+    color: plum;
+    font-size: 25px;
+    margin-top: 28px;
+    margin-bottom: 15px;
+}
+
+.details-card p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+/* ===== Back button ===== */
+
+.bottom-back-button {
+    display: block;
+    margin: 45px auto 20px auto;
+    padding: 12px 24px;
+    background-color: plum;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.bottom-back-button:hover {
+    background-color: #ea94ea;
+}
+
+/* ===== Session cards ===== */
+
+.session-card {
+    padding: 20px;
+    margin-top: 14px;
+}
+
+.session-card h4 {
+    color: plum;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+.session-card p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.session-card input {
+    padding: 8px;
+    margin: 8px;
+    border: 1px solid #e8b7ea;
+    border-radius: 7px;
+    font-family: inherit;
+}
+
+/* ===== Register area inside session card ===== */
+
+.register-area {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid #f0d0f0;
+}
+
+.register-area p {
+    margin-bottom: 12px;
+}
+
+/* ===== Buttons ===== */
+
+button,
+.event-card button,
+.session-card button {
+    padding: 10px 18px;
+    background-color: plum;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+button:hover,
+.event-card button:hover,
+.session-card button:hover {
+    background-color: #ea94ea;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== Weather area ===== */
+
+.weather-box {
+    padding: 18px;
+    margin-top: 10px;
+}
+
+.weather-info {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.weather-item {
+    background-color: #fff7ff;
+    border: 1px solid plum;
+    border-radius: 12px;
+    padding: 14px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.weather-title {
+    display: block;
+    color: plum;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+/* ===== Messages ===== */
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+}
+
+/* ===== Small effects ===== */
+
+.event-card:hover,
+.session-card:hover,
+.weather-item:hover {
+    box-shadow: 0 6px 16px rgba(221, 160, 221, 0.25);
+    transform: translateY(-2px);
+    transition: 0.2s;
+}
+
+/* ===== Statistics page ===== */
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    border: 1px solid #e8b7ea;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(221, 160, 221, 0.12);
+}
+
+.stat-card h2 {
+    color: plum;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.statistics-section {
+    background-color: white;
+    border: 1px solid #e8b7ea;
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(221, 160, 221, 0.12);
+}
+
+.statistics-section h2 {
+    color: plum;
+    margin-top: 0;
+}
+
+.statistics-section ul {
+    padding-left: 22px;
+}
+
+.statistics-section li {
+    margin-bottom: 10px;
+}
+
+/* ===== Admin login page ===== */
+
+.login-card {
+    background-color: white;
+    border: 1px solid #e8b7ea;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 420px;
+    margin: 50px auto;
+    box-shadow: 0 6px 18px rgba(221, 160, 221, 0.18);
+}
+
+.login-card h2 {
+    color: plum;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.login-card label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e8b7ea;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.login-card button {
+    width: 100%;
+    margin-top: 25px;
+}
+
+#adminLoginMessage {
+    text-align: center;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+/* ===== Admin panel ===== */
+
+.admin-card {
+    background-color: white;
+    border: 1px solid #e8b7ea;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 6px 18px rgba(221, 160, 221, 0.18);
+}
+
+.admin-card h2 {
+    color: plum;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.admin-card label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+.admin-card input,
+.admin-card textarea,
+.admin-card select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e8b7ea;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.admin-card textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.admin-card button {
+    margin-top: 22px;
+}
+
+.danger-card {
+    border: 1px solid #f0b0b0;
+}
+
+.delete-button {
+    background-color: #d9534f;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+/* ===== My Schedule page ===== */
+
+.schedule-search-card {
+    background-color: white;
+    border: 1px solid #e8b7ea;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 6px 18px rgba(221, 160, 221, 0.18);
+}
+
+.schedule-search-card h2 {
+    color: plum;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.schedule-search-card label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+.schedule-search-card input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e8b7ea;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.schedule-search-card button {
+    margin-top: 22px;
+}
+
+#scheduleMessage {
+    margin-top: 18px;
+    font-weight: bold;
+}

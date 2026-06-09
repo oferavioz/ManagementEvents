@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Schedule</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="Statistics.html">Statistics</a>
+        <a href="MySchedule.html">My Schedule</a>
+        <a href="AdminLogin.html">Admin</a>
+    </nav>
+    
+    <h1>My Schedule</h1>
+    <p>View your registered sessions</p>
+</header>
+
+<main>
+    <section class="schedule-search-card">
+        <h2>Find My Schedule</h2>
+        <label>User Id:</label>
+        <input type="number" id="scheduleUserId" placeholder="Enter your user id">
+        <button onclick="loadUserSchedule()">Show My Schedule</button>
+        <p id="scheduleMessage"></p>
+    </section>
+    <section id="myScheduleContainer"></section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
