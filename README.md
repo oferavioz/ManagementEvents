@@ -1,85 +1,35 @@
 # ManagementEvents
 
-ManagementEvents is a full-stack event management system developed as a server-side web project.
+ManagementEvents is a server-side web application for managing events, sessions, user registrations, and personal schedules.
 
-The system allows users to view events, see event details and sessions, register for sessions, view their personal schedule, and see event statistics.  
-The project also includes an admin area for creating, updating, and deleting events.
+The system includes a Web API, a database layer, and a client-side interface.
 
 ## Project Structure
 
-The solution is divided into three projects:
+The solution is divided into three main projects:
 
-text ManagementEvents ├── Client ├── Data └── ManagementEventsAPI 
-
-### Client
-
-The Client project contains the front-end files of the system.
-
-It includes:
-
-- HTML pages
-- CSS styling
-- JavaScript logic
-- Fetch API calls to the Web API
-
-Main pages:
-
-- index.html - main dashboard
-- EventDetails.html - event details and session registration
-- Statistics.html - statistics dashboard
-- MySchedule.html - user schedule page
-- AdminLogin.html - admin login page
-- Admin.html - admin management page
-
-### Data
-
-The Data project contains the data layer of the system.
-
-It includes:
-
-- Entity Framework Core DbContext
-- Database models
-
-Main folders:
-
-text Data ├── Data │   └── EventSystemContext.cs └── Models     ├── Event.cs     ├── Session.cs     ├── SessionRegistration.cs     └── User.cs 
-
-### ManagementEventsAPI
-
-The ManagementEventsAPI project contains the Web API layer.
-
-It includes:
-
-- Controllers
-- Services
-- DTOs
-- Program configuration
-- Swagger support
-
-Main folders:
-
-text ManagementEventsAPI ├── Controllers ├── DTOs ├── Services └── Program.cs 
+| Project | Description |
+|---|---|
+| Client | Contains the client-side files: HTML, CSS, JavaScript, and Fetch API calls. |
+| Data | Contains the Entity Framework Core database context and model classes. |
+| ManagementEventsAPI | Contains the Web API controllers, services, DTOs, and application configuration. |
 
 ## Main Features
 
 - View all events
-- View event details
-- View sessions for each event
+- View event details and sessions
 - Register users to sessions
-- Prevent duplicate registration
+- Prevent duplicate registrations
 - Prevent registration to overlapping sessions
-- View personal user schedule
+- View a user's personal schedule
 - View event statistics
 - Admin login
-- Admin create event
-- Admin update event
-- Admin delete event
-- Weather information for event location
-- Swagger API documentation
+- Create, update, and delete events
+- Display weather information by event location
+- API testing and documentation using Swagger
 
-## Technologies
+## Technologies Used
 
-- C#
 - ASP.NET Core Web API
 - Entity Framework Core
 - SQL Server
@@ -88,78 +38,52 @@ text ManagementEventsAPI ├── Controllers ├── DTOs ├── Services
 - JavaScript
 - Fetch API
 - Swagger
-- Git and GitHub
+- GitHub
 
 ## Database
 
-The project uses a SQL Server database named:
+The project uses a SQL Server database named EventSystem.
 
-text EventSystem 
+The database creation and initialization script is included in the repository:
 
-The database script is included in the repository:
+ManagementSystem.sql
 
-text ManagementSystem.sql 
-
-The script creates the database, tables, relationships, and initial data.
-
-Main tables:
+Main database tables:
 
 - User
 - Event
 - Session
 - SessionRegistration
 
-## API Endpoints
-
-### Event
-
-text GET    /api/event/schedule GET    /api/event/{id} POST   /api/event PUT    /api/event/{id} DELETE /api/event/{id} GET    /api/event/{id}/weather POST   /api/event/{eventId}/session 
-
-### Session
-
-text POST /api/session/{sessionId}/register GET  /api/session/{sessionId}/user 
-
-### User
-
-text GET /api/user/{userId}/schedule 
-
 ## How to Run the Project
 
 1. Open the solution file:
 
-text ManagementEvents.sln 
+   ManagementEvents.sln
 
-2. Create the database by running:
+2. Run the SQL script:
 
-text ManagementSystem.sql 
+   ManagementSystem.sql
+
+   This creates the database, tables, relationships, and initial data.
 
 3. Run the Web API project:
 
-text ManagementEventsAPI 
+   ManagementEventsAPI
 
-4. Open Swagger:
+4. Open Swagger in the browser:
 
-text https://localhost:5213/swagger 
+   http://localhost:5213/swagger
 
-or:
-
-text http://localhost:5213/swagger 
-
-5. Run the Client project and open the website.
+5. Run the client project and open the website.
 
 ## Admin Login
 
-The system includes a simple admin login page for project demonstration.
+For demonstration purposes, the system includes a simple admin login.
 
-text Username: admin Password: 1234 
-
-## Notes
-
-- The project is divided into Client, Data, and Web API layers.
-- Entity Framework Core is used for database access.
-- The Client communicates with the API using JavaScript Fetch API.
-- Swagger is used for testing and documenting the API.
-- The system includes validation for session registration, including duplicate and overlapping session checks.
+| Username | Password |
+|---|---|
+| admin | 1234 |
 
 ## Author
 
