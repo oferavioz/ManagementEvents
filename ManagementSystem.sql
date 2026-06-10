@@ -47,6 +47,9 @@ INSERT INTO [User] (FullName, Email) VALUES
 ('John Doe', 'john.doe@example.com'),
 ('Jane Smith', 'jane.smith@example.com'),
 ('Bob Johnson', 'bob.j@example.com');
+('Ofer Avioz', 'ofer.avioz@example.com'),
+('Daniel Levi', 'daniel.levi@example.com'),
+('Noa Cohen', 'noa.cohen@example.com');
 
 INSERT INTO [Event] (Title, Description, StartDate, EndDate, Location, EventType) VALUES 
 ('Modern Tech Conference 2026', 'A comprehensive conference covering software development and artificial intelligence.', '2026-06-15 09:00:00', '2026-06-15 17:00:00', 'Expo Tel Aviv', 'Conference'),
