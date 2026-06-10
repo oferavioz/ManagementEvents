@@ -46,16 +46,22 @@ CREATE TABLE SessionRegistration (
 INSERT INTO [User] (FullName, Email) VALUES 
 ('John Doe', 'john.doe@example.com'),
 ('Jane Smith', 'jane.smith@example.com'),
-('Bob Johnson', 'bob.j@example.com');
+('Bob Johnson', 'bob.j@example.com'),
 ('Ofer Avioz', 'ofer.avioz@example.com'),
 ('Daniel Levi', 'daniel.levi@example.com'),
 ('Noa Cohen', 'noa.cohen@example.com');
 
 INSERT INTO [Event] (Title, Description, StartDate, EndDate, Location, EventType) VALUES 
 ('Modern Tech Conference 2026', 'A comprehensive conference covering software development and artificial intelligence.', '2026-06-15 09:00:00', '2026-06-15 17:00:00', 'Expo Tel Aviv', 'Conference'),
-('Summer Music Festival 2026', 'An outdoor multi-stage music festival featuring international electronic and rock artists.', '2026-07-20 16:00:00', '2026-07-22 23:00:00', 'Yarkon Park Tel Aviv', 'Festival');
+('Summer Music Festival 2026', 'An outdoor multi-stage music festival featuring international electronic and rock artists.', '2026-07-20 16:00:00', '2026-07-22 23:00:00', 'Yarkon Park Tel Aviv', 'Festival'),
+('Cyber Security Workshop 2026', 'A practical workshop about cyber security, secure coding, and incident response.', '2026-08-10 09:00:00', '2026-08-10 16:00:00', 'Jerusalem Convention Center', 'Workshop');
 
 INSERT INTO [Session] (EventId, Title, Description, SpeakerName, StartTime, EndTime, RoomName) VALUES 
 (1, 'Introduction to AI in Cloud', 'Keynote session exploring modern cloud-based artificial intelligence tools and LLMs.', 'Dr. John Doe', '2026-06-15 09:30:00', '2026-06-15 10:30:00', 'Hall A'),
 (1, 'Microservices Architecture', 'A deep dive into server-side microservices design patterns and API gateways.', 'Eng. Ruth Levi', '2026-06-15 10:40:00', '2026-06-15 11:40:00', 'Hall B'),
-(2, 'Opening Rock Live Act', 'An energetic live performance to kick off the summer festival lineup.', 'The Code Rockers', '2026-07-20 17:00:00', '2026-07-20 18:30:00', 'Main Stage');
+(1, 'Secure Web API Development', 'A practical session about authentication, validation, and secure API design.', 'Michael Cohen', '2026-06-15 12:00:00', '2026-06-15 13:00:00', 'Hall C'),
+(2, 'Opening Rock Live Act', 'An energetic live performance to kick off the summer festival lineup.', 'The Code Rockers', '2026-07-20 17:00:00', '2026-07-20 18:30:00', 'Main Stage'),
+(2, 'Electronic Night Show', 'A live electronic music session with visuals, lights, and interactive audience experience.', 'DJ Nova', '2026-07-20 20:00:00', '2026-07-20 21:30:00', 'Main Stage'),
+(3, 'Secure Coding Basics', 'A practical session about common security vulnerabilities and how to avoid them.', 'Amit Shalev', '2026-08-10 09:30:00', '2026-08-10 10:30:00', 'Room 301'),
+(3, 'Network Attack Simulation', 'Hands-on demonstration of network attack scenarios and defensive techniques.', 'Noa Barak', '2026-08-10 11:00:00', '2026-08-10 12:30:00', 'Cyber Lab'),
+(3, 'Incident Response Plan', 'A session about identifying, handling, and documenting security incidents.', 'Daniel Cohen', '2026-08-10 14:00:00', '2026-08-10 15:30:00', 'Room 302');
