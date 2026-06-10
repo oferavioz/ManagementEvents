@@ -65,3 +65,9 @@ INSERT INTO [Session] (EventId, Title, Description, SpeakerName, StartTime, EndT
 (3, 'Secure Coding Basics', 'A practical session about common security vulnerabilities and how to avoid them.', 'Amit Shalev', '2026-08-10 09:30:00', '2026-08-10 10:30:00', 'Room 301'),
 (3, 'Network Attack Simulation', 'Hands-on demonstration of network attack scenarios and defensive techniques.', 'Noa Barak', '2026-08-10 11:00:00', '2026-08-10 12:30:00', 'Cyber Lab'),
 (3, 'Incident Response Plan', 'A session about identifying, handling, and documenting security incidents.', 'Daniel Cohen', '2026-08-10 14:00:00', '2026-08-10 15:30:00', 'Room 302');
+
+INSERT INTO [SessionRegistration] (SessionId, UserId, RegistrationDate) VALUES
+(1, 1, '2026-06-01 10:00:00'),
+(1, 2, '2026-06-01 10:15:00'),
+(2, 1, '2026-06-01 10:30:00'),
+(4, 4, '2026-07-01 14:00:00');
