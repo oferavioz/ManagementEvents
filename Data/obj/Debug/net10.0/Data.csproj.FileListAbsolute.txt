@@ -12,3 +12,4 @@
 /Users/ofera/Desktop/server-side/ManagementEvents/Data/obj/Debug/net10.0/Data.pdb
 /Users/ofera/Desktop/server-side/ManagementEvents/Data/obj/Debug/net10.0/Data.genruntimeconfig.cache
 /Users/ofera/Desktop/server-side/ManagementEvents/Data/obj/Debug/net10.0/ref/Data.dll
+/Users/ofera/Desktop/server-side/ManagementEvents/Data/obj/Debug/net10.0/Data.sourcelink.json

@@ -161,3 +161,4 @@
 /Users/ofera/Desktop/server-side/ManagementEvents/ManagementEventsAPI/bin/Debug/net10.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
 /Users/ofera/Desktop/server-side/ManagementEvents/ManagementEventsAPI/bin/Debug/net10.0/Data.dll
 /Users/ofera/Desktop/server-side/ManagementEvents/ManagementEventsAPI/bin/Debug/net10.0/Data.pdb
+/Users/ofera/Desktop/server-side/ManagementEvents/ManagementEventsAPI/obj/Debug/net10.0/ManagementEventsAPI.sourcelink.json

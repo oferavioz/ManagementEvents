@@ -1,18 +1,18 @@
-using Data.Data;
 using Data.Models;
+using Data.Repository;
 using ManagementEventsAPI.DTOs;
-using Microsoft.EntityFrameworkCore;
 
 namespace ManagementEventsAPI.Services;
 
 public class EventService
 {
-    private readonly EventSystemContext _context; 
-    public EventService(EventSystemContext context)
+    private readonly EventRepository _eventRepository;
+
+    public EventService(EventRepository eventRepository)
     {
-        _context = context;
-    } 
-    
+        _eventRepository = eventRepository;
+    }
+
     // First row in the table - /api/event POST
     public Event AddEvent(CreateEventDTO createEventDTO)
     {
@@ -25,70 +25,69 @@ public class EventService
             Location = createEventDTO.Location,
             EventType = createEventDTO.EventType
         };
-        
-        _context.Events.Add(newEvent);
-        _context.SaveChanges();
-        
+
+        _eventRepository.AddEvent(newEvent);
+        _eventRepository.SaveChanges();
         return newEvent;
     }
-    
+
     // Second row in the table - /api/event/{id} GET
     public EventDetailsDTO? GetEventById(int id)
     {
-        Event? eventFromDb = _context.Events.Include(e => e.Sessions).FirstOrDefault(e => e.Id == id);
+        Event? eventFromDb = _eventRepository.GetEventWithSessions(id);
         if (eventFromDb == null)
         {
             return null;
         }
         return ConvertEventToDTO(eventFromDb);
     }
-    
+
     // Third row in the table - /api/event/{id} PUT
     public Event? UpdateEvent(int id, UpdateEventDTO updateEventDTO)
     {
-        Event? eventToUpdate = _context.Events.FirstOrDefault(e => e.Id == id);
+        Event? eventToUpdate = _eventRepository.GetEventById(id);
         if (eventToUpdate == null)
         {
             return null;
         }
+
         eventToUpdate.Title = updateEventDTO.Title;
         eventToUpdate.Description = updateEventDTO.Description;
         eventToUpdate.StartDate = updateEventDTO.StartDate;
         eventToUpdate.EndDate = updateEventDTO.EndDate;
         eventToUpdate.Location = updateEventDTO.Location;
         eventToUpdate.EventType = updateEventDTO.EventType;
-        
-        _context.SaveChanges();
+
+        _eventRepository.SaveChanges();
         return eventToUpdate;
     }
-    
+
     // Fourth row in the table - /api/event/{id} DELETE
     public bool DeleteEvent(int id)
     {
-        Event? eventToDelete = _context.Events.Include(e => e.Sessions)
-            .ThenInclude(s => s.SessionRegistrations).FirstOrDefault(e => e.Id == id);
+        Event? eventToDelete = _eventRepository.GetEventWithSessionsAndRegistrations(id);
         if (eventToDelete == null)
         {
             return false; // If event not found
         }
         foreach (Session session in eventToDelete.Sessions) // Delete all registrations for each session
         {
-            _context.SessionRegistrations.RemoveRange(session.SessionRegistrations);
+            _eventRepository.RemoveRegistrations(session.SessionRegistrations);
         }
-        _context.Sessions.RemoveRange(eventToDelete.Sessions); // Delete all sessions
-        _context.Events.Remove(eventToDelete); // Delete the event
-        _context.SaveChanges();
+
+        _eventRepository.RemoveSessions(eventToDelete.Sessions); // Delete all sessions
+        _eventRepository.RemoveEvent(eventToDelete); // Delete the event
+        _eventRepository.SaveChanges();
         return true; // If successfully deleted
     }
-    
+
     // Fifth row in the table - /api/event/schedule GET
     public List<EventDetailsDTO> GetEventSchedule()
     {
-        List<Event> events = _context.Events.Include(e => e.Sessions).OrderBy(e => e.StartDate).ToList();
+        List<Event> events = _eventRepository.GetEventSchedule();
         return events.Select(e => ConvertEventToDTO(e)).ToList();
     }
-    
-    
+
     // ====== HELPERS =====
     private EventDetailsDTO ConvertEventToDTO(Event eventFromDb)
     {
@@ -115,6 +114,4 @@ public class EventService
             }).ToList()
         };
     }
-
-
 }

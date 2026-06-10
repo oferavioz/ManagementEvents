@@ -1,6 +1,7 @@
 using Data.Data;
 using ManagementEventsAPI.Services;
 using Microsoft.EntityFrameworkCore;
+using Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 builder.Services.AddControllers();
 // Register the database context
 builder.Services.AddDbContext<EventSystemContext>();
+builder.Services.AddScoped<EventRepository>();
+builder.Services.AddScoped<SessionRepository>();
+builder.Services.AddScoped<UserRepository>();
 // Register the services
 builder.Services.AddScoped<EventService>();
 builder.Services.AddScoped<SessionService>();

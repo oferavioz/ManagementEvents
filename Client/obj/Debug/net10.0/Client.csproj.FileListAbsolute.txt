@@ -35,3 +35,4 @@
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/wuns14m6a0-{0}-3p6xt9dmlw-3p6xt9dmlw.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/704emtzhve-{0}-8ghgfkpryb-8ghgfkpryb.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/e957amgxnl-{0}-bs3s026ezg-bs3s026ezg.gz
+/Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/Client.sourcelink.json
