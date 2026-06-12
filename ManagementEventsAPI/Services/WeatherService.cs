@@ -30,28 +30,42 @@ public class WeatherService
         {
             return null;
         }
-
-        string cacheKey = "weather_event_" + eventId;
+        string eventDate = eventFromDB.StartDate.ToString("yyyy-MM-dd");
+        string cacheKey = "weather_event_" + eventId + "_" + eventDate;
+        
         if (_cache.TryGetValue(cacheKey, out WeatherDTO? cachedWeather))
         {
             return cachedWeather;
         }
         var client = _httpClientFactory.CreateClient();
+
+        string apiKey = "f1854177792046ffaa973219261206";
         string location = eventFromDB.Location;
+        int eventHour = eventFromDB.StartDate.Hour;
+
         string weatherUrl =
-            "https://wttr.in/~" + Uri.EscapeDataString(location) + "?format=j1";
+            "https://api.weatherapi.com/v1/future.json?key=" + apiKey +
+            "&q=" + Uri.EscapeDataString(location) +
+            "&dt=" + eventDate;
 
         string weatherJsonString = await client.GetStringAsync(weatherUrl);
         JsonDocument weatherJson = JsonDocument.Parse(weatherJsonString);
-        JsonElement currentCondition = weatherJson.RootElement
-            .GetProperty("current_condition")[0];
 
-        string temperature = currentCondition.GetProperty("temp_C").GetString()!;
-        string feelsLike = currentCondition.GetProperty("FeelsLikeC").GetString()!;
-        string humidity = currentCondition.GetProperty("humidity").GetString()!;
-        string weatherDescription = currentCondition.GetProperty("weatherDesc")[0]
-            .GetProperty("value").GetString()!;
+        JsonElement forecastDay = weatherJson.RootElement
+            .GetProperty("forecast")
+            .GetProperty("forecastday")[0];
 
+        JsonElement hourForecast = forecastDay
+            .GetProperty("hour")[eventHour];
+
+        string temperature = hourForecast.GetProperty("temp_c").GetDouble().ToString();
+        string feelsLike = hourForecast.GetProperty("feelslike_c").GetDouble().ToString();
+        string humidity = hourForecast.GetProperty("humidity").GetInt32().ToString();
+        string weatherDescription = hourForecast
+            .GetProperty("condition")
+            .GetProperty("text")
+            .GetString()!;
+        
         WeatherDTO weather = new WeatherDTO
         {
             EventId = eventFromDB.Id,

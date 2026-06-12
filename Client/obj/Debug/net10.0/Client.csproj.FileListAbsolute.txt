@@ -28,7 +28,6 @@
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/Client.genruntimeconfig.cache
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/ref/Client.dll
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/q1c3x1jte7-{0}-4rqe3gppev-4rqe3gppev.gz
-/Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/smeloy1tgt-{0}-8zf83txl1s-8zf83txl1s.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/tn8osfr0r7-{0}-f4pi440c6p-f4pi440c6p.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/xt7q0ddhh5-{0}-3thva0fzwn-3thva0fzwn.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/0dbdqkdglr-{0}-hyf9jios8w-hyf9jios8w.gz
@@ -36,3 +35,4 @@
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/704emtzhve-{0}-8ghgfkpryb-8ghgfkpryb.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/e957amgxnl-{0}-bs3s026ezg-bs3s026ezg.gz
 /Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/Client.sourcelink.json
+/Users/ofera/Desktop/server-side/ManagementEvents/Client/obj/Debug/net10.0/compressed/smeloy1tgt-{0}-es8lszg8tz-es8lszg8tz.gz
