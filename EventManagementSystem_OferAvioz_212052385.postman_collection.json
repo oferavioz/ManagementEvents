@@ -1,0 +1,549 @@
+{
+  "info": {
+    "_postman_id": "93726fc8-9eef-4a1c-a721-390066a995e9",
+    "name": "EventManagementSystem_OferAvioz_212052385",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54919401",
+    "_collection_link": "https://go.postman.co/collection/54919401-93726fc8-9eef-4a1c-a721-390066a995e9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "1 - Create Event",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Postman Test Event\",\n  \"description\": \"Event created from Postman\",\n  \"startDate\": \"2026-07-25T09:00:00\",\n  \"endDate\": \"2026-07-25T17:00:00\",\n  \"location\": \"Tel Aviv\",\n  \"eventType\": \"Test\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2 - Get Event By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/event/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3 - Update Event",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Postman Test Event\",\n  \"description\": \"Event updated from Postman\",\n  \"startDate\": \"2026-07-25T10:00:00\",\n  \"endDate\": \"2026-07-25T18:00:00\",\n  \"location\": \"Haifa\",\n  \"eventType\": \"Updated Test\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4 - Delete Event",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/event/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5 - Get Event Schedule",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/event/schedule",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "schedule"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6 - Add Session To Event",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Postman Test Session\",\n  \"description\": \"Session created from Postman\",\n  \"speakerName\": \"Postman Speaker\",\n  \"startTime\": \"2026-07-15T14:00:00\",\n  \"endTime\": \"2026-07-15T15:00:00\",\n  \"roomName\": \"Room P1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event/1/session",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "1",
+            "session"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7 - Register User To Session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 6\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/session/9/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "session",
+            "9",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "8 - Get Users By Session ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/session/9/user",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "session",
+            "9",
+            "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9 - Get User's Schedule",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/user/1/schedule",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "user",
+            "1",
+            "schedule"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10 - Get Event Weather",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/event/1/weather",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "1",
+            "weather"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "11 - Create Event With Invalid Dates",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Invalid Date Event\",\n  \"description\": \"This event should fail because the end date is before the start date\",\n  \"startDate\": \"2026-07-25T17:00:00\",\n  \"endDate\": \"2026-07-25T09:00:00\",\n  \"location\": \"Tel Aviv\",\n  \"eventType\": \"Validation\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "12 - Add Session Outside Event Time",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Invalid Session Outside Event\",\n  \"description\": \"This session should fail because it is outside the event time\",\n  \"speakerName\": \"Validation Speaker\",\n  \"startTime\": \"2026-07-16T10:00:00\",\n  \"endTime\": \"2026-07-16T11:00:00\",\n  \"roomName\": \"Invalid Room\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event/1/session",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "1",
+            "session"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "13 - Add Session End Before Start",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Invalid Session End Before Start\",\n  \"description\": \"This session should fail because end time is before start time\",\n  \"speakerName\": \"Validation Speaker\",\n  \"startTime\": \"2026-07-15T15:00:00\",\n  \"endTime\": \"2026-07-15T14:00:00\",\n  \"roomName\": \"Invalid Room\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event/1/session",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "1",
+            "session"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "14 - Register Duplicate User To Session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 6\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/session/9/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "session",
+            "9",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "15A - Register User To Overlapping Session - Create the overlap session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Overlapping Postman Session\",\n  \"description\": \"This session overlaps with session 9\",\n  \"speakerName\": \"Validation Speaker\",\n  \"startTime\": \"2026-07-15T14:30:00\",\n  \"endTime\": \"2026-07-15T15:30:00\",\n  \"roomName\": \"Room P2\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/event/1/session",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "1",
+            "session"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "15B - Register User To Overlapping Session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 6\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/session/10/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "session",
+            "10",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "16 - Register To Non Existing Session",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 6\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/session/999/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "session",
+            "999",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "17 - Register Non Existing User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 999\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5213/api/session/9/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "session",
+            "9",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "18 - Get Non Existing Event",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/event/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "19 - Delete Non Existing Event",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5213/api/event/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5213",
+          "path": [
+            "api",
+            "event",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
