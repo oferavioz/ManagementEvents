@@ -25,7 +25,7 @@ header {
 }
 
 header h1 {
-    font-size: 46px;
+    font-size: 55px;
     margin: 0;
     font-weight: bold;
 }
@@ -87,12 +87,33 @@ header p {
     margin-top: 0;
     margin-bottom: 18px;
     color: plum;
-    font-size: 25px;
+    font-size: 27px;
 }
 
 .event-card p {
     margin: 7px 0;
-    font-size: 16px;
+    font-size: 18px;
+}
+
+.event-title-date {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    margin-left: 8px;
+}
+
+.event-card button {
+    margin-top: 14px;
+}
+
+.event-card p.event-description {
+    color: #555;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.45;
+    margin-top : 2px;
+    margin-bottom: 18px;
+    max-width: 850px;
 }
 
 /* ===== Details card ===== */
@@ -121,8 +142,8 @@ header p {
 }
 
 .details-card p {
-    font-size: 16px;
-    margin: 8px 0;
+    font-size: 17px;
+    margin: 9px 0;
 }
 
 /* ===== Back button ===== */
@@ -159,8 +180,8 @@ header p {
 }
 
 .session-card p {
-    margin: 8px 0;
-    font-size: 16px;
+    margin: 9px 0;
+    font-size: 17px;
 }
 
 .session-card input {
@@ -217,10 +238,9 @@ button:disabled {
 }
 
 .weather-info {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 15px;
 }
 
 .weather-item {
@@ -311,7 +331,14 @@ button:disabled {
 }
 
 .statistics-section li {
+    font-size: 19px;
     margin-bottom: 10px;
+}
+
+.statistics-section p {
+    font-size: 19px;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 /* ===== Admin login page ===== */

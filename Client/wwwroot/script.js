@@ -56,8 +56,8 @@ function loadEvents() {
                 eventCard.className = "event-card";
 
                 eventCard.innerHTML = `
-                    <h2>${event.title}</h2>
-                    <p><strong>Date:</strong> ${new Date(event.startDate).toLocaleDateString()}</p>
+                    <h2>${event.title}<span class="event-title-date">| ${formatDate(event.startDate)}</span></h2>
+                    <p class="event-description">${event.description}</p>
                     <p><strong>Location:</strong> ${event.location}</p>
                     <p><strong>Type:</strong> ${event.eventType}</p>
                     <p><strong>Sessions:</strong> ${event.sessions.length}</p>
@@ -416,7 +416,7 @@ async function loadStatistics() {
                 const li = document.createElement("li");
                 li.innerHTML = `
                     <strong>${event.title}</strong> -
-                    ${new Date(event.startDate).toLocaleDateString()} -
+                    ${formatDate(event.startDate)} -
                     ${event.location}
                 `;
                 upcomingEventsList.appendChild(li);
@@ -748,4 +748,10 @@ function loadUserSchedule() {
             message.className = "error-message";
             console.log(error);
         });
+}
+
+// Date helper
+function formatDate(dateTime) {
+    const date = new Date(dateTime);
+    return date.toLocaleDateString("en-GB");
 }
