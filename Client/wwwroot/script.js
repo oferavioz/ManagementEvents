@@ -7,7 +7,10 @@ const updateEventSelect = document.getElementById("updateEventSelect");
 const deleteEventSelect = document.getElementById("deleteEventSelect");
 const myScheduleContainer = document.getElementById("myScheduleContainer");
 
-let adminEvents = [];
+let adminEvents = []; 
+
+
+// ===== Page initialization =====
 
 // If we are in index.html, load the dashboard
 if (eventsContainer !== null) {
@@ -25,11 +28,12 @@ if (statisticsContainer !== null) {
 if (updateEventSelect !== null && deleteEventSelect !== null) {
     loadAdminEvents();
 }
-// If we are in mySchedule.html, load the user's schedule'
+// If we are in mySchedule.html, load the user's schedule
 if (myScheduleContainer !== null) {
     myScheduleContainer.innerHTML = "";
 }
 
+// ===== Dashboard / Events =====
 function loadEvents() {
     eventsContainer.innerHTML = "<p>Loading events...</p>";
 
@@ -93,8 +97,7 @@ function loadEventDetailsPage() {
             }
 
             return response.json();
-        })
-        .then(event => {
+        }).then(event => {
             eventDetailsContainer.innerHTML = `
                 <div class="details-card">
                     <h2>${event.title}</h2>
@@ -116,8 +119,7 @@ function loadEventDetailsPage() {
 
             displaySessions(event.sessions);
             loadWeather(event.id);
-        })
-        .catch(error => {
+        }).catch(error => {
             eventDetailsContainer.innerHTML = `<p class="error-message">${error.message}</p>`;
             console.log(error);
         });
@@ -160,6 +162,11 @@ function displaySessions(sessions) {
     });
 }
 
+function goBackToDashboard() {
+    window.location.href = "index.html";
+}
+
+// ===== Weather =====
 function loadWeather(eventId) {
     const weatherContainer = document.getElementById("weatherContainer");
 
@@ -173,7 +180,7 @@ function loadWeather(eventId) {
             const weatherText = weather.weatherInfo;
 
             weatherContainer.innerHTML = `
-        <h3>Current Weather at Event Location</h3>
+        <h3>Expected Weather at Event Location</h3>
 
         <div class="weather-box">
        
@@ -220,6 +227,8 @@ function getWeatherPart(text, startText, endText) {
     return text.substring(realStart, endIndex).trim();
 }
 
+// ===== Session Registration =====
+
 function registerToSession(sessionId) {
     const userIdInput = document.getElementById("userId-" + sessionId);
     const message = document.getElementById("registerMessage-" + sessionId);
@@ -237,7 +246,6 @@ function registerToSession(sessionId) {
         }, 4000);
         return;
     }
-
     fetch(apiBaseUrl + "/session/" + sessionId + "/register", {
         method: "POST",
         headers: {
@@ -267,7 +275,7 @@ function registerToSession(sessionId) {
             message.innerHTML = error.message;
             message.className = "error-message";
             userIdInput.value = ""; // clean the input after error
-        console.log(error);
+            console.log(error);
 
             setTimeout(() => {
                 message.innerHTML = "";
@@ -276,12 +284,8 @@ function registerToSession(sessionId) {
         });
 }
 
-function goBackToDashboard() {
-    window.location.href = "index.html";
-}
+// ===== Statistics =====
 
-// Statistics
-// Statistics
 async function loadStatistics() {
     statisticsContainer.innerHTML = "<p>Loading statistics...</p>";
 
@@ -424,7 +428,8 @@ async function loadStatistics() {
     }
 }
 
-// Admin login
+// ===== Admin login =====
+
 function adminLogin() {
     const usernameInput = document.getElementById("adminUsername");
     const passwordInput = document.getElementById("adminPassword");
@@ -452,7 +457,8 @@ function adminLogin() {
     }
 }
 
-// Admin panel
+// ===== Admin panel =====
+
 function loadAdminEvents() {
     fetch(apiBaseUrl + "/event/schedule").then(response => {
             if (!response.ok) {
@@ -602,7 +608,6 @@ function updateEvent() {
                     throw new Error(text);
                 });
             }
-
             return response.json();
         }).then(result => {
             message.innerHTML = "Event updated successfully";
@@ -670,7 +675,7 @@ function convertToDateTimeLocal(dateTime) {
     return dateTime.substring(0, 16);
 }
 
-// My Schedule
+// ===== My Schedule =====
 function loadUserSchedule() {
     const userIdInput = document.getElementById("scheduleUserId");
     const message = document.getElementById("scheduleMessage");
@@ -711,7 +716,6 @@ function loadUserSchedule() {
             }
 
             sessions.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
-
             myScheduleContainer.innerHTML = `
                 <div class="statistics-section">
                     <h2>Registered Sessions</h2>
