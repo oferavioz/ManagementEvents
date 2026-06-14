@@ -22,8 +22,10 @@
 <main>
     <section class="schedule-search-card">
         <h2>Find My Schedule</h2>
-        <label>User Id:</label>
-        <input type="number" id="scheduleUserId" placeholder="Enter your user id">
+        <div class="user-id-row">
+            <label for="scheduleUserId">User ID:</label>
+            <input type="number" id="scheduleUserId" placeholder="Enter your user id">
+        </div>
         <button onclick="loadUserSchedule()">Show My Schedule</button>
         <p id="scheduleMessage"></p>
     </section>

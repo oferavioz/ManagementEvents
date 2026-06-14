@@ -103,8 +103,8 @@ function loadEventDetailsPage() {
                     <h2>${event.title}</h2>
 
                     <p><strong>Description:</strong> ${event.description}</p>
-                    <p><strong>Start:</strong> ${new Date(event.startDate).toLocaleString()}</p>
-                    <p><strong>End:</strong> ${new Date(event.endDate).toLocaleString()}</p>
+                    <p><strong>Start:</strong> ${formatDateTime(event.startDate)}</p>
+                    <p><strong>End:</strong> ${formatDateTime(event.endDate)}</p>
                     <p><strong>Location:</strong> ${event.location}</p>
                     <p><strong>Type:</strong> ${event.eventType}</p>
 
@@ -145,8 +145,8 @@ function displaySessions(sessions) {
             <h4>${session.title}</h4>
             <p><strong>Description:</strong> ${session.description}</p>
             <p><strong>Speaker:</strong> ${session.speakerName}</p>
-            <p><strong>Start:</strong> ${new Date(session.startTime).toLocaleString()}</p>
-            <p><strong>End:</strong> ${new Date(session.endTime).toLocaleString()}</p>
+            <p><strong>Start:</strong> ${formatDateTime(session.startTime)}</p>
+            <p><strong>End:</strong> ${formatDateTime(session.endTime)}</p>
             <p><strong>Room:</strong> ${session.roomName}</p>
 
             <div class="register-area">
@@ -734,10 +734,10 @@ function loadUserSchedule() {
                     <h4>${session.title}</h4>
                     <p><strong>Description:</strong> ${session.description}</p>
                     <p><strong>Speaker:</strong> ${session.speakerName}</p>
-                    <p><strong>Start:</strong> ${new Date(session.startTime).toLocaleString()}</p>
-                    <p><strong>End:</strong> ${new Date(session.endTime).toLocaleString()}</p>
+                    <p><strong>Start:</strong> ${formatDateTime(session.startTime)}</p>
+                    <p><strong>End:</strong> ${formatDateTime(session.endTime)}</p>
                     <p><strong>Room:</strong> ${session.roomName}</p>
-                    <p><strong>Registered At:</strong> ${session.registrationDate === null ? "Not available" : new Date(session.registrationDate).toLocaleString()}</p>
+                    <p><strong>Registered At:</strong> ${session.registrationDate === null ? "Not available" : formatDateTime(session.registrationDate)}</p>
                 `;
 
                 registeredSessionsList.appendChild(sessionCard);
@@ -750,8 +750,13 @@ function loadUserSchedule() {
         });
 }
 
-// Date helper
+// Date helpers
 function formatDate(dateTime) {
     const date = new Date(dateTime);
     return date.toLocaleDateString("en-GB");
+}
+
+function formatDateTime(dateTime) {
+    const date = new Date(dateTime);
+    return date.toLocaleString("en-GB");
 }

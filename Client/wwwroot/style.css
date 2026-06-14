@@ -55,7 +55,7 @@ header p {
     margin-left: 20px;
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     border-bottom: 2px solid transparent;
     padding-bottom: 5px;
@@ -92,7 +92,7 @@ header p {
 
 .event-card p {
     margin: 7px 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .event-title-date {
@@ -129,7 +129,7 @@ header p {
 
 .details-card h2 {
     color: plum;
-    font-size: 32px;
+    font-size: 35px;
     margin-top: 0;
     margin-bottom: 22px;
 }
@@ -142,7 +142,7 @@ header p {
 }
 
 .details-card p {
-    font-size: 17px;
+    font-size: 21px;
     margin: 9px 0;
 }
 
@@ -176,12 +176,12 @@ header p {
     color: plum;
     margin-top: 0;
     margin-bottom: 18px;
-    font-size: 21px;
+    font-size: 24px;
 }
 
 .session-card p {
     margin: 9px 0;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .session-card input {
@@ -204,6 +204,10 @@ header p {
     margin-bottom: 12px;
 }
 
+.register-area label , input{
+    font-size: 19px;
+}
+
 /* ===== Buttons ===== */
 
 button,
@@ -217,6 +221,7 @@ button,
     cursor: pointer;
     font-family: inherit;
     font-weight: bold;
+    font-size: 18px;
 }
 
 button:hover,
@@ -358,6 +363,7 @@ button:disabled {
     margin-top: 0;
     margin-bottom: 25px;
     text-align: center;
+    font-size: 35px;
 }
 
 .login-card label {
@@ -365,6 +371,7 @@ button:disabled {
     font-weight: bold;
     margin-top: 15px;
     margin-bottom: 6px;
+    font-size: 25px;
 }
 
 .login-card input {
@@ -374,11 +381,13 @@ button:disabled {
     border-radius: 8px;
     font-family: inherit;
     box-sizing: border-box;
+    font-size: 20px;
 }
 
 .login-card button {
     width: 100%;
     margin-top: 25px;
+    font-size: 20px;
 }
 
 #adminLoginMessage {
@@ -402,13 +411,15 @@ button:disabled {
     color: plum;
     margin-top: 0;
     margin-bottom: 25px;
+    font-size: 35px;
 }
 
 .admin-card label {
     display: block;
     font-weight: bold;
     margin-top: 15px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    font-size: 20px;
 }
 
 .admin-card input,
@@ -420,6 +431,7 @@ button:disabled {
     border-radius: 8px;
     font-family: inherit;
     box-sizing: border-box;
+    font-size: 18px;
 }
 
 .admin-card textarea {
@@ -429,6 +441,8 @@ button:disabled {
 
 .admin-card button {
     margin-top: 22px;
+    font-size: 18px;
+    padding: 12px 22px;
 }
 
 .danger-card {
@@ -449,38 +463,54 @@ button:disabled {
     background-color: white;
     border: 1px solid #e8b7ea;
     border-radius: 16px;
-    padding: 30px;
+    padding: 35px;
     margin: 30px auto;
     box-shadow: 0 6px 18px rgba(221, 160, 221, 0.18);
+    font-size: 18px;
 }
 
 .schedule-search-card h2 {
     color: plum;
     margin-top: 0;
     margin-bottom: 25px;
-}
-
-.schedule-search-card label {
-    display: block;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 6px;
+    font-size: 35px;
 }
 
 .schedule-search-card input {
     width: 100%;
-    padding: 10px;
+    padding: 13px;
     border: 1px solid #e8b7ea;
     border-radius: 8px;
     font-family: inherit;
     box-sizing: border-box;
+    font-size: 18px;
+}
+
+.user-id-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.user-id-row label {
+    font-weight: bold;
+    font-size: 23px;
+    white-space: nowrap;
+}
+
+.user-id-row input {
+    flex-grow: 1;
 }
 
 .schedule-search-card button {
     margin-top: 22px;
+    font-size: 18px;
+    padding: 12px 22px;
 }
 
 #scheduleMessage {
     margin-top: 18px;
     font-weight: bold;
+    font-size: 18px;
 }
