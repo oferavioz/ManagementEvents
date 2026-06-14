@@ -37,7 +37,6 @@ public class SessionService
             EndTime = createSessionDTO.EndTime,
             RoomName = createSessionDTO.RoomName
         };
-
         _sessionRepository.AddSession(newSession);
         _sessionRepository.SaveChanges();
 
@@ -96,7 +95,6 @@ public class SessionService
             UserId = registerSessionDTO.UserId,
             RegistrationDate = DateTime.Now
         };
-
         _sessionRepository.AddRegistration(newRegistration);
         _sessionRepository.SaveChanges();
 
@@ -113,8 +111,7 @@ public class SessionService
         }
 
         List<UserDetailsDTO> users = _sessionRepository
-            .GetRegistrationsBySessionIdWithUsers(sessionId)
-            .Select(sr => new UserDetailsDTO
+            .GetRegistrationsBySessionIdWithUsers(sessionId).Select(sr => new UserDetailsDTO
             {
                 Id = sr.User.Id,
                 FullName = sr.User.FullName,

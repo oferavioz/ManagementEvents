@@ -1,6 +1,6 @@
 namespace ManagementEventsAPI.DTOs;
 
-// for user schedule page - added the registration date
+// For the user schedule page - added the registration date
 public class UserScheduleDTO
 {
     public int SessionId { get; set; }

@@ -134,7 +134,7 @@ public class EventController : ControllerBase
 
     // WEATHER 
     // GET - api/event/{id}/weather
-    // :int - is important so the routing wont confuse it with other routes like schedule
+    // :int - is important so the routing won't confuse it with other routes like schedule
     [HttpGet("{id:int}/weather")]
     public async Task<ActionResult> GetWeatherForEvent(int id)
     {

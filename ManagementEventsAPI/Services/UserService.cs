@@ -21,7 +21,6 @@ public class UserService
         {
             return null;
         }
-
         // Get all sessions user is registered to
         List<UserScheduleDTO> userSchedule = _userRepository
             .GetUserRegistrationsWithSessions(userId)

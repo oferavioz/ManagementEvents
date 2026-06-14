@@ -16,6 +16,10 @@ public class EventService
     // First row in the table - /api/event POST
     public Event AddEvent(CreateEventDTO createEventDTO)
     {
+        if (createEventDTO.StartDate >= createEventDTO.EndDate)
+        {
+            throw new Exception("Event start date must be before end date");
+        }
         var newEvent = new Event
         {
             Title = createEventDTO.Title,
@@ -25,7 +29,6 @@ public class EventService
             Location = createEventDTO.Location,
             EventType = createEventDTO.EventType
         };
-
         _eventRepository.AddEvent(newEvent);
         _eventRepository.SaveChanges();
         return newEvent;
@@ -49,6 +52,10 @@ public class EventService
         if (eventToUpdate == null)
         {
             return null;
+        }
+        if (updateEventDTO.StartDate >= updateEventDTO.EndDate)
+        {
+            throw new Exception("Event start date must be before end date");
         }
 
         eventToUpdate.Title = updateEventDTO.Title;
@@ -74,7 +81,6 @@ public class EventService
         {
             _eventRepository.RemoveRegistrations(session.SessionRegistrations);
         }
-
         _eventRepository.RemoveSessions(eventToDelete.Sessions); // Delete all sessions
         _eventRepository.RemoveEvent(eventToDelete); // Delete the event
         _eventRepository.SaveChanges();

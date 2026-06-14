@@ -45,18 +45,14 @@ public class WeatherService
 
         string weatherUrl =
             "https://api.weatherapi.com/v1/future.json?key=" + apiKey +
-            "&q=" + Uri.EscapeDataString(location) +
-            "&dt=" + eventDate;
+            "&q=" + Uri.EscapeDataString(location) + "&dt=" + eventDate;
 
         string weatherJsonString = await client.GetStringAsync(weatherUrl);
         JsonDocument weatherJson = JsonDocument.Parse(weatherJsonString);
 
-        JsonElement forecastDay = weatherJson.RootElement
-            .GetProperty("forecast")
-            .GetProperty("forecastday")[0];
+        JsonElement forecastDay = weatherJson.RootElement.GetProperty("forecast").GetProperty("forecastday")[0];
 
-        JsonElement hourForecast = forecastDay
-            .GetProperty("hour")[eventHour];
+        JsonElement hourForecast = forecastDay.GetProperty("hour")[eventHour];
 
         string temperature = hourForecast.GetProperty("temp_c").GetDouble().ToString();
         string feelsLike = hourForecast.GetProperty("feelslike_c").GetDouble().ToString();

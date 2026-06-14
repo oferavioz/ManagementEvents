@@ -5,7 +5,7 @@ using Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// For client side
+// For the client side
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
