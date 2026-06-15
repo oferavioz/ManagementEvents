@@ -39,4 +39,20 @@ public class UserService
             .ToList();
         return userSchedule;
     }
+    
+    // For MySchedule - getting user's details
+    public UserDetailsDTO? GetUserById(int userId)
+    {
+        User? userFromDB = _userRepository.GetUserById(userId);
+        if (userFromDB == null)
+        {
+            return null;
+        }
+        return new UserDetailsDTO
+        {
+            Id = userFromDB.Id,
+            FullName = userFromDB.FullName,
+            Email = userFromDB.Email
+        };
+    }
 }

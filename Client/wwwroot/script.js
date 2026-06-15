@@ -694,55 +694,69 @@ function loadUserSchedule() {
 
     myScheduleContainer.innerHTML = "<p>Loading schedule...</p>";
 
-    fetch(apiBaseUrl + "/user/" + userId + "/schedule").then(response => {
+    fetch(apiBaseUrl + "/user/" + userId)
+        .then(response => {
             if (!response.ok) {
                 return response.text().then(text => {
                     throw new Error(text);
                 });
             }
-
             return response.json();
-        }).then(sessions => {
-            myScheduleContainer.innerHTML = "";
+        })
+        .then(user => {
+            return fetch(apiBaseUrl + "/user/" + userId + "/schedule")
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error(text);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(sessions => {
+                    myScheduleContainer.innerHTML = "";
 
-            if (sessions.length === 0) {
-                myScheduleContainer.innerHTML = `
-                    <div class="statistics-section">
-                        <h2>No Registered Sessions</h2>
-                        <p>This user is not registered to any sessions yet.</p>
-                    </div>
-                `;
-                return;
-            }
+                    if (sessions.length === 0) {
+                        myScheduleContainer.innerHTML = `
+                            <div class="statistics-section">
+                                <h2>Hello ${user.fullName}</h2>
+                                <p>You are not registered to any sessions yet.</p>
+                                <p><strong>User ID:</strong> ${user.id}</p>
+                            </div>
+                        `;
+                        return;
+                    }
 
-            sessions.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
-            myScheduleContainer.innerHTML = `
-                <div class="statistics-section">
-                    <h2>Registered Sessions</h2>
-                    <p><strong>User Id:</strong> ${userId}</p>
-                    <div id="registeredSessionsList"></div>
-                </div>
-            `;
+                    sessions.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
 
-            const registeredSessionsList = document.getElementById("registeredSessionsList");
+                    myScheduleContainer.innerHTML = `
+                        <div class="statistics-section">
+                            <h2>Registered Sessions for ${user.fullName}</h2>
+                            <p><strong>User ID:</strong> ${user.id}</p>
+                            <div id="registeredSessionsList"></div>
+                        </div>
+                    `;
 
-            sessions.forEach(session => {
-                const sessionCard = document.createElement("div");
-                sessionCard.className = "session-card";
+                    const registeredSessionsList = document.getElementById("registeredSessionsList");
 
-                sessionCard.innerHTML = `
-                    <h4>${session.title}</h4>
-                    <p><strong>Description:</strong> ${session.description}</p>
-                    <p><strong>Speaker:</strong> ${session.speakerName}</p>
-                    <p><strong>Start:</strong> ${formatDateTime(session.startTime)}</p>
-                    <p><strong>End:</strong> ${formatDateTime(session.endTime)}</p>
-                    <p><strong>Room:</strong> ${session.roomName}</p>
-                    <p><strong>Registered At:</strong> ${session.registrationDate === null ? "Not available" : formatDateTime(session.registrationDate)}</p>
-                `;
+                    sessions.forEach(session => {
+                        const sessionCard = document.createElement("div");
+                        sessionCard.className = "session-card";
 
-                registeredSessionsList.appendChild(sessionCard);
-            });
-        }).catch(error => {
+                        sessionCard.innerHTML = `
+                            <h4>${session.title}</h4>
+                            <p><strong>Description:</strong> ${session.description}</p>
+                            <p><strong>Speaker:</strong> ${session.speakerName}</p>
+                            <p><strong>Start:</strong> ${formatDateTime(session.startTime)}</p>
+                            <p><strong>End:</strong> ${formatDateTime(session.endTime)}</p>
+                            <p><strong>Room:</strong> ${session.roomName}</p>
+                            <p><strong>Registered At:</strong> ${session.registrationDate === null ? "Not available" : formatDateTime(session.registrationDate)}</p>
+                        `;
+                        registeredSessionsList.appendChild(sessionCard);
+                    });
+                });
+        })
+        .catch(error => {
             myScheduleContainer.innerHTML = "";
             message.innerHTML = error.message;
             message.className = "error-message";

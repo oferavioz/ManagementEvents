@@ -33,4 +33,24 @@ public class UserController : ControllerBase
         }
     }
     
+    // For MySchedule - getting user's details
+    // GET - api/user/{userId}
+    [HttpGet("{userId}")]
+    public ActionResult GetUserDetails(int userId)
+    {
+        try
+        {
+            UserDetailsDTO? user = _userService.GetUserById(userId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
 }
