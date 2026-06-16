@@ -85,7 +85,7 @@ For demonstration purposes, the system includes a simple admin login.
 |---|---|
 | admin | 1234 |
 
-## Author
+## Developer
 
 Ofer Avioz  
 Computer Engineering Student  
